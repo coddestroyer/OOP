@@ -1,0 +1,30 @@
+class Person:
+  MIN_AGE = 1
+  MAX_AGE = 100
+  def __init__(self, name, age):
+    self.age = age
+    self.name = name
+
+  @classmethod
+  def from_string(cls, data):
+      name, age = data.split(", ")
+      return cls(name, int(age))
+
+  def set_value(self, name, age):
+    if self.MIN_AGE <= age <= self.MAX_AGE:
+      self.name = name
+      self.age = age
+
+  def __setattr__(self, name, value):
+    if name :
+      raise AttributeError("В имени нету буков")
+    else:
+      return object.__setattr__(self, name, value)
+
+  def __setattr__(self, age, value):
+    if age : 
+      raise AttributeError("ну это вообще ни в какие ворота")
+    else:
+      return object.__setattr__(self, age, value)
+ 
+p = Person()
