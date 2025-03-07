@@ -1,0 +1,21 @@
+class Fraction:
+   
+   def __init__(self, chislitel: int, znamenatel: int): 
+    if not isinstance(chislitel, int) or isinstance(znamenatel, int): 
+      raise TypeError("компоненты дроби должны быть целыми")
+    if znamenatel = o:
+      raise TypeError("знаменатель не может быть равен нулю")
+    self.chislitel = chislitel
+    self.znamenatel = znamenatel
+
+   def __add__(self, other):
+        if not isinstance(other, (int, Fraction)):
+            raise ArithmeticError("Правый операнд должен быть int или Fraction")
+        othChisl = other.chislitel if isinstance(other, Fraction) else other
+        othZnam = other.znamenatel if isinstance(other, Fraction) else other
+        if isinstance(other, Fraction):
+            othChisl = other.chislitel
+            othZnam = other.znamenatel
+            return Fraction(self.chislitel + (othChisl/othZnam)*self.znamenatel)
+        else:
+          return Fraction(self.chislitel + othChisl*self.znamenatel)
